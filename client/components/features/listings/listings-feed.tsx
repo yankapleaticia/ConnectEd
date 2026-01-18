@@ -15,7 +15,7 @@ interface ListingsFeedProps {
 
 export function ListingsFeed({ filters, onPostSuccess }: ListingsFeedProps) {
   const t = useTranslations('listings.feed');
-  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const user = useAuthStore((state) => state.user);
   const { data: listings, isLoading, error } = listingsQueries.useListings(filters);
 
   const hasFilters = filters && (filters.category || filters.search || filters.authorId);
@@ -38,10 +38,8 @@ export function ListingsFeed({ filters, onPostSuccess }: ListingsFeedProps) {
 
   return (
     <div className="space-y-6">
-      {/* Post Composer - only show if authenticated and no filters */}
-      {isAuthenticated && !hasFilters && (
-        <PostComposer onPostSuccess={onPostSuccess} />
-      )}
+      {/* Post Composer - show for authenticated users (even with filters) */}
+      {user ? <PostComposer onPostSuccess={onPostSuccess} /> : null}
 
       {/* Listings or Empty State */}
       {!listings || listings.length === 0 ? (

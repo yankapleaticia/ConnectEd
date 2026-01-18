@@ -14,9 +14,14 @@ export const authService = {
   async signup(params: SignupParams): Promise<AuthResponse> {
     try {
       const supabase = getSupabaseClient();
+
+      const emailRedirectTo =
+        typeof window !== 'undefined' ? `${window.location.origin}/auth/callback` : undefined;
+
       const { data, error } = await supabase.auth.signUp({
         email: params.email,
         password: params.password,
+        options: emailRedirectTo ? { emailRedirectTo } : undefined,
       });
 
       if (error) {
