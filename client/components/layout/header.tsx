@@ -78,26 +78,26 @@ export function Header() {
             </Link>
           </div>
           <div className="flex items-center gap-3 sm:gap-4">
+            {/* All Listings - Always visible, Desktop: icon + text, Mobile: icon + text */}
+            <Link
+              href="/listings"
+              className="flex items-center gap-2 px-3 sm:px-4 py-2 text-sm font-medium transition-colors rounded-lg"
+              style={{ color: 'var(--color-text-secondary)' }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = 'var(--color-primary)';
+                e.currentTarget.style.backgroundColor = 'var(--color-surface)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'var(--color-text-secondary)';
+                e.currentTarget.style.backgroundColor = 'transparent';
+              }}
+            >
+              <List size={18} />
+              <span>{t('feed')}</span>
+            </Link>
+
             {isAuthenticated ? (
               <>
-                {/* All Listings - Desktop: icon + text, Mobile: icon + text */}
-                <Link
-                  href="/listings"
-                  className="flex items-center gap-2 px-3 sm:px-4 py-2 text-sm font-medium transition-colors rounded-lg"
-                  style={{ color: 'var(--color-text-secondary)' }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.color = 'var(--color-primary)';
-                    e.currentTarget.style.backgroundColor = 'var(--color-surface)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.color = 'var(--color-text-secondary)';
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                  }}
-                >
-                  <List size={18} />
-                  <span>{t('feed')}</span>
-                </Link>
-
                 {/* Messages - Desktop: icon + text, Mobile: icon only */}
                 <Link
                   href="/messages"
