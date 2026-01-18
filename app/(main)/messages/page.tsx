@@ -31,7 +31,7 @@ export default function MessagesPage() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-6 sm:pb-8">
       <div className="mb-6">
         <h1 
           className="text-3xl font-bold mb-2"
@@ -41,6 +41,7 @@ export default function MessagesPage() {
         </h1>
       </div>
       <Inbox userId={user.id} />
+      <div className="mt-8 pt-6 border-t" style={{ borderColor: 'var(--color-border)' }} />
     </div>
   );
 }
