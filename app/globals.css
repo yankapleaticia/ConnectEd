@@ -126,3 +126,76 @@ body {
     transform: none;
   }
 }
+
+/* Landing Hero (background image + readable overlay) */
+.landingHero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  min-height: 80svh;
+  padding: calc(clamp(4rem, 10svh, 6rem) + env(safe-area-inset-top)) 1rem
+    calc(clamp(4rem, 10svh, 6rem) + env(safe-area-inset-bottom));
+}
+
+.landingHeroBg {
+  position: absolute;
+  inset: 0;
+}
+
+.landingHeroImg {
+  object-fit: cover;
+  object-position: center 35%;
+  transform: scale(1.02);
+}
+
+.landingHeroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-primary) 70%, transparent) 0%,
+    color-mix(in srgb, var(--color-secondary) 60%, transparent) 100%
+  );
+}
+
+.landingHeroContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.landingHeroText {
+  color: var(--color-primary-text);
+}
+
+.landingHeroTextMuted {
+  color: color-mix(in srgb, var(--color-primary-text) 92%, transparent);
+}
+
+.landingHeroPrimaryCta {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  box-shadow: 0 10px 20px color-mix(in srgb, var(--color-text-primary) 18%, transparent);
+}
+
+.landingHeroSecondaryCta {
+  background-color: transparent;
+  color: var(--color-primary-text);
+  border: 2px solid var(--color-primary-text);
+}
+
+/* Animation delays (replaces inline animationDelay) */
+.anim-delay-100 {
+  animation-delay: 0.1s;
+}
+.anim-delay-200 {
+  animation-delay: 0.2s;
+}
+.anim-delay-300 {
+  animation-delay: 0.3s;
+}

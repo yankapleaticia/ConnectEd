@@ -2,6 +2,7 @@
 
 import { useTranslations } from '@/client/lib/i18n';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Calendar, Tag, User } from 'lucide-react';
 import { profileQueries } from '@/services/queries/profile.queries';
 import { ListingImageGallery } from './listing-image-gallery';
@@ -42,6 +43,11 @@ export function ListingCard({ listing }: ListingCardProps) {
   const authorName = authorProfile?.success
     ? `${authorProfile.profile.firstName} ${authorProfile.profile.lastName}`
     : listing.authorId;
+
+  const avatarUrl = authorProfile?.success ? authorProfile.profile.avatarUrl : null;
+  const displayUrl = avatarUrl;
+  const isExternalUrl = displayUrl ? (displayUrl.startsWith('http://') || displayUrl.startsWith('https://')) : false;
+  const isDataUrl = displayUrl?.startsWith('data:') ?? false;
 
   return (
     <Link href={`/listings/${listing.id}`}>
@@ -90,7 +96,37 @@ export function ListingCard({ listing }: ListingCardProps) {
             className="flex items-center gap-2 text-xs sm:text-sm"
             style={{ color: 'var(--color-text-muted)' }}
           >
-            <User size={14} />
+            <div className="relative w-5 h-5 sm:w-6 sm:h-6 rounded-full overflow-hidden border flex-shrink-0" style={{ borderColor: 'var(--color-border)' }}>
+              {displayUrl ? (
+                isDataUrl || isExternalUrl ? (
+                  <img
+                    src={displayUrl}
+                    alt={authorName}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <Image
+                    src={displayUrl}
+                    alt={authorName}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 20px, 24px"
+                  />
+                )
+              ) : (
+                <div
+                  className="w-full h-full flex items-center justify-center"
+                  style={{ backgroundColor: 'var(--color-surface)' }}
+                >
+                  <span
+                    className="text-xs font-semibold"
+                    style={{ color: 'var(--color-text-muted)' }}
+                  >
+                    {authorName[0]?.toUpperCase()}
+                  </span>
+                </div>
+              )}
+            </div>
             <span>{authorName}</span>
             <span>•</span>
             <Calendar size={14} />

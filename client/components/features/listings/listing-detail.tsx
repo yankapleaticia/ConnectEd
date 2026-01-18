@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from '@/client/lib/i18n';
 import { useAuthStore } from '@/store/features/auth.store';
 import { profileQueries } from '@/services/queries/profile.queries';
@@ -48,6 +49,11 @@ export function ListingDetail({ listing }: ListingDetailProps) {
   const authorName = authorProfile?.success
     ? `${authorProfile.profile.firstName} ${authorProfile.profile.lastName}`
     : listing.authorId;
+
+  const avatarUrl = authorProfile?.success ? authorProfile.profile.avatarUrl : null;
+  const displayUrl = avatarUrl;
+  const isExternalUrl = displayUrl ? (displayUrl.startsWith('http://') || displayUrl.startsWith('https://')) : false;
+  const isDataUrl = displayUrl?.startsWith('data:') ?? false;
 
   return (
     <>
@@ -104,9 +110,42 @@ export function ListingDetail({ listing }: ListingDetailProps) {
             className="flex flex-wrap items-center gap-3 text-sm"
             style={{ color: 'var(--color-text-secondary)' }}
           >
-            <span>
-              {tDetail('by')} {authorName}
-            </span>
+            <div className="flex items-center gap-2">
+              <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border flex-shrink-0" style={{ borderColor: 'var(--color-border)' }}>
+                {displayUrl ? (
+                  isDataUrl || isExternalUrl ? (
+                    <img
+                      src={displayUrl}
+                      alt={authorName}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <Image
+                      src={displayUrl}
+                      alt={authorName}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 24px, 28px"
+                    />
+                  )
+                ) : (
+                  <div
+                    className="w-full h-full flex items-center justify-center"
+                    style={{ backgroundColor: 'var(--color-surface)' }}
+                  >
+                    <span
+                      className="text-xs font-semibold"
+                      style={{ color: 'var(--color-text-muted)' }}
+                    >
+                      {authorName[0]?.toUpperCase()}
+                    </span>
+                  </div>
+                )}
+              </div>
+              <span>
+                {tDetail('by')} {authorName}
+              </span>
+            </div>
             <span className="flex items-center gap-1">
               <Calendar size={14} />
               {tDetail('posted')} {formatDate(listing.createdAt)}
