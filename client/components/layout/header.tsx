@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useAuthStore } from '@/store/features/auth.store';
 import { useLocaleStore } from '@/store/features/locale.store';
 import { profileQueries } from '@/services/queries/profile.queries';
+import { messagesQueries } from '@/services/queries/messages.queries';
 import { List, MessageSquare, User, LogOut, Globe, Check } from 'lucide-react';
 
 export function Header() {
@@ -34,6 +35,12 @@ export function Header() {
   const displayUrl = avatarUrl;
   const isExternalUrl = displayUrl ? (displayUrl.startsWith('http://') || displayUrl.startsWith('https://')) : false;
   const isDataUrl = displayUrl?.startsWith('data:') ?? false;
+
+  // Get unread message count (conversations where last message is from someone else)
+  const { data: conversations } = messagesQueries.useConversations(user?.id ?? null);
+  const unreadCount = conversations
+    ? conversations.filter((conv) => conv.lastMessage && conv.lastMessage.senderId !== user?.id).length
+    : 0;
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -101,7 +108,7 @@ export function Header() {
                 {/* Messages - Desktop: icon + text, Mobile: icon only */}
                 <Link
                   href="/messages"
-                  className="flex items-center gap-2 px-3 sm:px-4 py-2 text-sm font-medium transition-colors rounded-lg"
+                  className="relative flex items-center gap-2 px-3 sm:px-4 py-2 text-sm font-medium transition-colors rounded-lg"
                   style={{ color: 'var(--color-text-secondary)' }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.color = 'var(--color-primary)';
@@ -114,6 +121,17 @@ export function Header() {
                 >
                   <MessageSquare size={18} />
                   <span className="hidden sm:inline">{t('messages')}</span>
+                  {unreadCount > 0 && (
+                    <span
+                      className="absolute -top-1 -right-1 min-w-[18px] h-[18px] flex items-center justify-center px-1.5 rounded-full text-xs font-semibold"
+                      style={{
+                        backgroundColor: 'var(--color-error)',
+                        color: 'var(--color-error-text)',
+                      }}
+                    >
+                      {unreadCount > 99 ? '99+' : unreadCount}
+                    </span>
+                  )}
                 </Link>
 
                 {/* Profile - Desktop: icon + text, Mobile: avatar with dropdown */}
