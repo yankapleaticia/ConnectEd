@@ -1,0 +1,332 @@
+{
+  "common": {
+    "nav": {
+      "home": "Accueil",
+      "feed": "Toutes les annonces",
+      "create": "Créer une annonce",
+      "profile": "Profil",
+      "messages": "Messages",
+      "login": "Connexion",
+      "signup": "S'inscrire",
+      "logout": "Déconnexion",
+      "language": "Langue",
+      "english": "Anglais",
+      "french": "Français"
+    },
+    "categories": {
+      "jobs": "Emplois",
+      "housing": "Logement",
+      "relocation": "Relocalisation",
+      "dailyLife": "Vie quotidienne"
+    },
+    "buttons": {
+      "view": "Voir",
+      "readMore": "Lire la suite"
+    }
+  },
+  "listings": {
+    "feed": {
+      "title": "Toutes les annonces",
+      "empty": "Aucune annonce trouvée",
+      "loading": "Chargement des annonces..."
+    },
+    "detail": {
+      "by": "Par",
+      "posted": "Publié",
+      "updated": "Mis à jour",
+      "category": "Catégorie"
+    },
+    "card": {
+      "readMore": "Lire la suite",
+      "view": "Voir l'annonce"
+    },
+    "filters": {
+      "category": "Catégorie",
+      "allCategories": "Toutes les catégories",
+      "author": "Auteur",
+      "search": "Rechercher des annonces...",
+      "sort": "Trier par",
+      "newest": "Plus récent",
+      "oldest": "Plus ancien",
+      "clear": "Effacer les filtres",
+      "noResults": "Aucune annonce ne correspond à vos filtres"
+    },
+    "create": {
+      "title": "Créer une annonce",
+      "subtitle": "Partagez une opportunité ou une information",
+      "form": {
+        "title": "Titre",
+        "titlePlaceholder": "Entrez le titre de l'annonce",
+        "body": "Contenu",
+        "bodyPlaceholder": "Décrivez votre annonce...",
+        "category": "Catégorie",
+        "submit": "Créer l'annonce",
+        "creating": "Création...",
+        "success": "Annonce créée avec succès"
+      },
+      "validation": {
+        "titleRequired": "Le titre est requis",
+        "titleMin": "Le titre doit contenir au moins 5 caractères",
+        "bodyRequired": "Le contenu est requis",
+        "bodyMin": "Le contenu doit contenir au moins 20 caractères",
+        "categoryRequired": "La catégorie est requise"
+      }
+    },
+    "edit": {
+      "title": "Modifier l'annonce",
+      "submit": "Mettre à jour l'annonce",
+      "updating": "Mise à jour...",
+      "success": "Annonce mise à jour avec succès",
+      "notFound": "Annonce introuvable",
+      "unauthorized": "Vous n'avez pas la permission de modifier cette annonce"
+    },
+    "composer": {
+      "placeholder": "À quoi pensez-vous aujourd'hui...",
+      "title": "Titre",
+      "titlePlaceholder": "Entrez un titre...",
+      "body": "Description",
+      "bodyPlaceholder": "Partagez les détails...",
+      "category": "Catégorie",
+      "addImages": "Ajouter des Images",
+      "removeImage": "Supprimer",
+      "cancel": "Annuler",
+      "post": "Publier",
+      "posting": "Publication...",
+      "maxImages": "Maximum 5 images",
+      "imageSizeError": "L'image doit faire moins de 5MB"
+    },
+    "preview": {
+      "title": "Aperçu de Votre Annonce",
+      "edit": "Modifier",
+      "post": "Publier l'Annonce",
+      "posting": "Publication...",
+      "close": "Fermer"
+    },
+    "empty": {
+      "title": "Aucune annonce pour le moment",
+      "description": "Soyez le premier à partager une opportunité !",
+      "createFirst": "Créez votre première annonce"
+    }
+  },
+  "comments": {
+    "title": "Commentaires",
+    "empty": "Aucun commentaire pour le moment. Soyez le premier à commenter !",
+    "loading": "Chargement des commentaires...",
+    "add": "Ajouter un commentaire",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer ce commentaire ?",
+    "content": "Commentaire",
+    "contentPlaceholder": "Écrivez votre commentaire...",
+    "submit": "Publier le commentaire",
+    "submitting": "Publication...",
+    "updating": "Mise à jour...",
+    "validation": {
+      "contentRequired": "Le contenu du commentaire est requis",
+      "contentMin": "Le commentaire doit contenir au moins 5 caractères"
+    }
+  },
+  "home": {
+    "welcome": "Bienvenue sur ConnectEd",
+    "subtitle": "Connectez-vous avec des personnes internationales vivant à l'étranger",
+    "cta": "Commencer"
+  },
+  "auth": {
+    "signup": {
+      "title": "S'inscrire",
+      "subtitle": "Créez votre compte",
+      "form": {
+        "emailLabel": "Email",
+        "emailPlaceholder": "vous@exemple.com",
+        "passwordLabel": "Mot de passe",
+        "passwordPlaceholder": "Entrez votre mot de passe",
+        "submit": "Créer un compte",
+        "submitting": "Création...",
+        "validation": {
+          "emailRequired": "L'email est requis",
+          "emailInvalid": "Veuillez saisir un email valide",
+          "passwordRequired": "Le mot de passe est requis",
+          "passwordMin": "Le mot de passe doit contenir au moins 6 caractères"
+        }
+      },
+      "links": {
+        "haveAccount": "Vous avez déjà un compte ?",
+        "login": "Connexion"
+      },
+      "messages": {
+        "checkEmailTitle": "Vérifiez vos emails",
+        "checkEmailBody": "Nous vous avons envoyé un lien de confirmation. Ouvrez-le pour activer votre compte, puis revenez vous connecter."
+      }
+    },
+    "login": {
+      "title": "Connexion",
+      "subtitle": "Bon retour",
+      "form": {
+        "emailLabel": "Email",
+        "emailPlaceholder": "vous@exemple.com",
+        "passwordLabel": "Mot de passe",
+        "passwordPlaceholder": "Entrez votre mot de passe",
+        "submit": "Connexion",
+        "submitting": "Connexion...",
+        "validation": {
+          "emailRequired": "L'email est requis",
+          "emailInvalid": "Veuillez saisir un email valide",
+          "passwordRequired": "Le mot de passe est requis"
+        }
+      },
+      "links": {
+        "noAccount": "Vous n'avez pas de compte ?",
+        "signup": "S'inscrire"
+      }
+    },
+    "logout": {
+      "title": "Déconnexion",
+      "action": "Déconnexion"
+    }
+  },
+  "profile": {
+    "complete": {
+      "title": "Complétez Votre Profil",
+      "subtitle": "Aidez la communauté à mieux vous connaître",
+      "form": {
+        "firstNameLabel": "Prénom",
+        "firstNamePlaceholder": "Entrez votre prénom",
+        "lastNameLabel": "Nom",
+        "lastNamePlaceholder": "Entrez votre nom",
+        "bioLabel": "Biographie",
+        "bioPlaceholder": "Parlez-nous de vous...",
+        "locationCityLabel": "Ville",
+        "locationCityPlaceholder": "Entrez votre ville",
+        "locationCountryLabel": "Pays",
+        "locationCountryPlaceholder": "Entrez votre pays",
+        "phoneLabel": "Numéro de téléphone",
+        "phonePlaceholder": "+33 1 23 45 67 89",
+        "languagesLabel": "Langues",
+        "languagesPlaceholder": "Français, Anglais, Espagnol",
+        "languagesHint": "Séparez plusieurs langues par des virgules",
+        "submit": "Compléter le Profil",
+        "submitting": "Enregistrement..."
+      },
+      "validation": {
+        "firstNameRequired": "Le prénom est requis",
+        "lastNameRequired": "Le nom est requis",
+        "bioMax": "La biographie doit contenir 500 caractères ou moins"
+      },
+      "avatar": {
+        "label": "Photo de Profil",
+        "placeholder": "Cliquez ou glissez pour télécharger",
+        "hint": "JPEG, PNG ou WebP (max 2MB)",
+        "uploading": "Téléchargement...",
+        "change": "Changer la photo",
+        "error": "Échec du téléchargement de l'image"
+      }
+    },
+    "view": {
+      "title": "Mon Profil",
+      "bio": "Biographie",
+      "location": "Localisation",
+      "languages": "Langues",
+      "phone": "Téléphone",
+      "listings": "Mes Annonces",
+      "noListings": "Vous n'avez pas encore créé d'annonces",
+      "editProfile": "Modifier le Profil",
+      "success": "Profil complété avec succès !"
+    },
+    "listings": {
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cette annonce ?",
+      "deleteSuccess": "Annonce supprimée avec succès",
+      "deleteError": "Échec de la suppression de l'annonce",
+      "deleting": "Suppression...",
+      "cancel": "Annuler"
+    }
+  },
+  "messages": {
+    "title": "Messages",
+    "inbox": "Boîte de réception",
+    "noConversations": "Aucune conversation pour le moment. Commencez une nouvelle conversation !",
+    "loading": "Chargement des messages...",
+    "send": "Envoyer le message",
+    "sending": "Envoi...",
+    "body": "Message",
+    "bodyPlaceholder": "Tapez votre message...",
+    "to": "À",
+    "conversationWith": "Conversation avec",
+    "noMessages": "Aucun message pour le moment. Commencez la conversation !",
+    "validation": {
+      "bodyRequired": "Le corps du message est requis",
+      "bodyMin": "Le message doit contenir au moins 1 caractère"
+    }
+  },
+  "landing": {
+    "hero": {
+      "title": "Connectez-vous avec des Personnes Internationales Vivant à l'Étranger",
+      "subtitle": "Votre communauté pour l'emploi, le logement, la relocalisation et le soutien quotidien où que vous soyez dans le monde",
+      "cta": "Commencer",
+      "ctaSecondary": "Parcourir les Annonces"
+    },
+    "features": {
+      "title": "Tout ce dont Vous Avez Besoin pour Vous Installer à l'Étranger",
+      "jobs": {
+        "title": "Trouver un Emploi",
+        "description": "Découvrez des opportunités d'emploi partagées par les membres de la communauté"
+      },
+      "housing": {
+        "title": "Trouver un Logement",
+        "description": "Obtenez de l'aide pour trouver votre prochain logement auprès de locaux et d'expatriés"
+      },
+      "relocation": {
+        "title": "Conseils de Relocalisation",
+        "description": "Apprenez d'autres personnes qui ont vécu le processus"
+      },
+      "dailyLife": {
+        "title": "Vie Quotidienne",
+        "description": "Partagez et découvrez des conseils pour la vie quotidienne à l'étranger"
+      }
+    },
+    "howItWorks": {
+      "title": "Comment Ça Marche",
+      "step1": {
+        "title": "S'inscrire",
+        "description": "Créez votre compte gratuit en quelques secondes"
+      },
+      "step2": {
+        "title": "Parcourir ou Publier",
+        "description": "Trouvez des opportunit��s ou partagez ce que vous savez"
+      },
+      "step3": {
+        "title": "Se Connecter",
+        "description": "Envoyez des messages aux autres et construisez votre réseau"
+      }
+    },
+    "cta": {
+      "title": "Prêt à Rejoindre la Communauté ?",
+      "subtitle": "Commencez à vous connecter avec des personnes internationales aujourd'hui",
+      "button": "S'inscrire Maintenant"
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "À Propos de ConnectEd",
+      "description": "Une plateforme connectant les personnes internationales pour l'emploi, le logement et le soutien à l'étranger"
+    },
+    "links": {
+      "title": "Liens Rapides",
+      "home": "Accueil",
+      "listings": "Toutes les Annonces",
+      "about": "À Propos",
+      "contact": "Contact"
+    },
+    "categories": {
+      "title": "Catégories"
+    },
+    "legal": {
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions d'Utilisation",
+      "copyright": "© 2026 ConnectEd. Tous droits réservés."
+    }
+  }
+}

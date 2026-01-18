@@ -1,0 +1,332 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "feed": "All Listings",
+      "create": "Create Listing",
+      "profile": "Profile",
+      "messages": "Messages",
+      "login": "Login",
+      "signup": "Sign Up",
+      "logout": "Logout",
+      "language": "Language",
+      "english": "English",
+      "french": "French"
+    },
+    "categories": {
+      "jobs": "Jobs",
+      "housing": "Housing",
+      "relocation": "Relocation",
+      "dailyLife": "Daily Life"
+    },
+    "buttons": {
+      "view": "View",
+      "readMore": "Read more"
+    }
+  },
+  "listings": {
+    "feed": {
+      "title": "All Listings",
+      "empty": "No listings found",
+      "loading": "Loading listings..."
+    },
+    "detail": {
+      "by": "By",
+      "posted": "Posted",
+      "updated": "Updated",
+      "category": "Category"
+    },
+    "card": {
+      "readMore": "Read more",
+      "view": "View listing"
+    },
+    "filters": {
+      "category": "Category",
+      "allCategories": "All Categories",
+      "author": "Author",
+      "search": "Search listings...",
+      "sort": "Sort by",
+      "newest": "Newest First",
+      "oldest": "Oldest First",
+      "clear": "Clear Filters",
+      "noResults": "No listings match your filters"
+    },
+    "create": {
+      "title": "Create Listing",
+      "subtitle": "Share an opportunity or information",
+      "form": {
+        "title": "Title",
+        "titlePlaceholder": "Enter listing title",
+        "body": "Content",
+        "bodyPlaceholder": "Describe your listing...",
+        "category": "Category",
+        "submit": "Create Listing",
+        "creating": "Creating...",
+        "success": "Listing created successfully"
+      },
+      "validation": {
+        "titleRequired": "Title is required",
+        "titleMin": "Title must be at least 5 characters",
+        "bodyRequired": "Content is required",
+        "bodyMin": "Content must be at least 20 characters",
+        "categoryRequired": "Category is required"
+      }
+    },
+    "edit": {
+      "title": "Edit Listing",
+      "submit": "Update Listing",
+      "updating": "Updating...",
+      "success": "Listing updated successfully",
+      "notFound": "Listing not found",
+      "unauthorized": "You don't have permission to edit this listing"
+    },
+    "composer": {
+      "placeholder": "What's on your mind today...",
+      "title": "Title",
+      "titlePlaceholder": "Enter a title...",
+      "body": "Description",
+      "bodyPlaceholder": "Share details...",
+      "category": "Category",
+      "addImages": "Add Images",
+      "removeImage": "Remove",
+      "cancel": "Cancel",
+      "post": "Post",
+      "posting": "Posting...",
+      "maxImages": "Maximum 5 images",
+      "imageSizeError": "Image must be less than 5MB"
+    },
+    "preview": {
+      "title": "Preview Your Listing",
+      "edit": "Edit",
+      "post": "Post Listing",
+      "posting": "Posting...",
+      "close": "Close"
+    },
+    "empty": {
+      "title": "No listings yet",
+      "description": "Be the first to share an opportunity!",
+      "createFirst": "Create your first listing"
+    }
+  },
+  "comments": {
+    "title": "Comments",
+    "empty": "No comments yet. Be the first to comment!",
+    "loading": "Loading comments...",
+    "add": "Add Comment",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "deleteConfirm": "Are you sure you want to delete this comment?",
+    "content": "Comment",
+    "contentPlaceholder": "Write your comment...",
+    "submit": "Post Comment",
+    "submitting": "Posting...",
+    "updating": "Updating...",
+    "validation": {
+      "contentRequired": "Comment content is required",
+      "contentMin": "Comment must be at least 5 characters"
+    }
+  },
+  "home": {
+    "welcome": "Welcome to ConnectEd",
+    "subtitle": "Connect with international people living abroad",
+    "cta": "Get Started"
+  },
+  "auth": {
+    "signup": {
+      "title": "Sign Up",
+      "subtitle": "Create your account",
+      "form": {
+        "emailLabel": "Email",
+        "emailPlaceholder": "you@example.com",
+        "passwordLabel": "Password",
+        "passwordPlaceholder": "Enter your password",
+        "submit": "Create account",
+        "submitting": "Creating...",
+        "validation": {
+          "emailRequired": "Email is required",
+          "emailInvalid": "Please enter a valid email",
+          "passwordRequired": "Password is required",
+          "passwordMin": "Password must be at least 6 characters"
+        }
+      },
+      "links": {
+        "haveAccount": "Already have an account?",
+        "login": "Login"
+      },
+      "messages": {
+        "checkEmailTitle": "Check your email",
+        "checkEmailBody": "We sent you a confirmation link. Open it to activate your account, then come back and log in."
+      }
+    },
+    "login": {
+      "title": "Login",
+      "subtitle": "Welcome back",
+      "form": {
+        "emailLabel": "Email",
+        "emailPlaceholder": "you@example.com",
+        "passwordLabel": "Password",
+        "passwordPlaceholder": "Enter your password",
+        "submit": "Login",
+        "submitting": "Logging in...",
+        "validation": {
+          "emailRequired": "Email is required",
+          "emailInvalid": "Please enter a valid email",
+          "passwordRequired": "Password is required"
+        }
+      },
+      "links": {
+        "noAccount": "Don't have an account?",
+        "signup": "Sign up"
+      }
+    },
+    "logout": {
+      "title": "Logout",
+      "action": "Logout"
+    }
+  },
+  "profile": {
+    "complete": {
+      "title": "Complete Your Profile",
+      "subtitle": "Help the community get to know you better",
+      "form": {
+        "firstNameLabel": "First Name",
+        "firstNamePlaceholder": "Enter your first name",
+        "lastNameLabel": "Last Name",
+        "lastNamePlaceholder": "Enter your last name",
+        "bioLabel": "Bio",
+        "bioPlaceholder": "Tell us about yourself...",
+        "locationCityLabel": "City",
+        "locationCityPlaceholder": "Enter your city",
+        "locationCountryLabel": "Country",
+        "locationCountryPlaceholder": "Enter your country",
+        "phoneLabel": "Phone Number",
+        "phonePlaceholder": "+1 234 567 8900",
+        "languagesLabel": "Languages",
+        "languagesPlaceholder": "English, French, Spanish",
+        "languagesHint": "Separate multiple languages with commas",
+        "submit": "Complete Profile",
+        "submitting": "Saving..."
+      },
+      "validation": {
+        "firstNameRequired": "First name is required",
+        "lastNameRequired": "Last name is required",
+        "bioMax": "Bio must be 500 characters or less"
+      },
+      "avatar": {
+        "label": "Profile Picture",
+        "placeholder": "Click or drag to upload",
+        "hint": "JPEG, PNG, or WebP (max 2MB)",
+        "uploading": "Uploading...",
+        "change": "Change photo",
+        "error": "Failed to upload image"
+      }
+    },
+    "view": {
+      "title": "My Profile",
+      "bio": "Bio",
+      "location": "Location",
+      "languages": "Languages",
+      "phone": "Phone",
+      "listings": "My Listings",
+      "noListings": "You haven't created any listings yet",
+      "editProfile": "Edit Profile",
+      "success": "Profile completed successfully!"
+    },
+    "listings": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "deleteConfirm": "Are you sure you want to delete this listing?",
+      "deleteSuccess": "Listing deleted successfully",
+      "deleteError": "Failed to delete listing",
+      "deleting": "Deleting...",
+      "cancel": "Cancel"
+    }
+  },
+  "messages": {
+    "title": "Messages",
+    "inbox": "Inbox",
+    "noConversations": "No conversations yet. Start a new conversation!",
+    "loading": "Loading messages...",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "body": "Message",
+    "bodyPlaceholder": "Type your message...",
+    "to": "To",
+    "conversationWith": "Conversation with",
+    "noMessages": "No messages yet. Start the conversation!",
+    "validation": {
+      "bodyRequired": "Message body is required",
+      "bodyMin": "Message must be at least 1 character"
+    }
+  },
+  "landing": {
+    "hero": {
+      "title": "Connect with International People Living Abroad",
+      "subtitle": "Your community for jobs, housing, relocation, and daily life support wherever you are in the world",
+      "cta": "Get Started",
+      "ctaSecondary": "Browse Listings"
+    },
+    "features": {
+      "title": "Everything You Need to Settle Abroad",
+      "jobs": {
+        "title": "Find Jobs",
+        "description": "Discover job opportunities shared by community members"
+      },
+      "housing": {
+        "title": "Find Housing",
+        "description": "Get help finding your next home from locals and expats"
+      },
+      "relocation": {
+        "title": "Relocation Tips",
+        "description": "Learn from others who've been through the process"
+      },
+      "dailyLife": {
+        "title": "Daily Life",
+        "description": "Share and discover tips for everyday living abroad"
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "step1": {
+        "title": "Sign Up",
+        "description": "Create your free account in seconds"
+      },
+      "step2": {
+        "title": "Browse or Post",
+        "description": "Find opportunities or share what you know"
+      },
+      "step3": {
+        "title": "Connect",
+        "description": "Message others and build your network"
+      }
+    },
+    "cta": {
+      "title": "Ready to Join the Community?",
+      "subtitle": "Start connecting with international people today",
+      "button": "Sign Up Now"
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "About ConnectEd",
+      "description": "A platform connecting international people for jobs, housing, and support abroad"
+    },
+    "links": {
+      "title": "Quick Links",
+      "home": "Home",
+      "listings": "All Listings",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "categories": {
+      "title": "Categories"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "copyright": "© 2026 ConnectEd. All rights reserved."
+    }
+  }
+}

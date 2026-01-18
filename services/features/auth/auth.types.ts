@@ -10,9 +10,16 @@ export interface LoginParams {
   readonly password: string;
 }
 
-export interface AuthResult {
+export interface AuthAuthenticated {
   readonly success: true;
+  readonly status: 'authenticated';
   readonly user: User;
+}
+
+export interface AuthNeedsEmailConfirmation {
+  readonly success: true;
+  readonly status: 'needs_email_confirmation';
+  readonly email: string;
 }
 
 export interface AuthError {
@@ -20,4 +27,4 @@ export interface AuthError {
   readonly error: string;
 }
 
-export type AuthResponse = AuthResult | AuthError;
+export type AuthResponse = AuthAuthenticated | AuthNeedsEmailConfirmation | AuthError;

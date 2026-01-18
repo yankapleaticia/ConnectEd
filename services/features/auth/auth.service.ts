@@ -1,4 +1,4 @@
-import { supabase } from '@/services/api/client';
+import { getSupabaseClient } from '@/services/api/client';
 import type { User } from '@/types/domain/user';
 import type { SignupParams, LoginParams, AuthResponse } from './auth.types';
 
@@ -13,6 +13,7 @@ function mapSupabaseUser(supabaseUser: { id: string; email?: string; created_at:
 export const authService = {
   async signup(params: SignupParams): Promise<AuthResponse> {
     try {
+      const supabase = getSupabaseClient();
       const { data, error } = await supabase.auth.signUp({
         email: params.email,
         password: params.password,
@@ -25,12 +26,17 @@ export const authService = {
         return { success: false, error: error.message };
       }
 
+      // If email confirmation is enabled, Supabase may return a user but no session.
       if (!data.user) {
         return { success: false, error: 'Signup failed. Please try again.' };
       }
 
-      const user = mapSupabaseUser(data.user);
-      return { success: true, user };
+      if (data.session?.user) {
+        const user = mapSupabaseUser(data.session.user);
+        return { success: true, status: 'authenticated', user };
+      }
+
+      return { success: true, status: 'needs_email_confirmation', email: params.email };
     } catch (error) {
       return { success: false, error: 'An unexpected error occurred during signup' };
     }
@@ -38,6 +44,7 @@ export const authService = {
 
   async login(params: LoginParams): Promise<AuthResponse> {
     try {
+      const supabase = getSupabaseClient();
       const { data, error } = await supabase.auth.signInWithPassword({
         email: params.email,
         password: params.password,
@@ -55,13 +62,14 @@ export const authService = {
       }
 
       const user = mapSupabaseUser(data.user);
-      return { success: true, user };
+      return { success: true, status: 'authenticated', user };
     } catch (error) {
       return { success: false, error: 'An unexpected error occurred during login' };
     }
   },
 
   async logout(): Promise<void> {
+    const supabase = getSupabaseClient();
     await supabase.auth.signOut();
   },
 };

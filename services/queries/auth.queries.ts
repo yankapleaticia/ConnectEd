@@ -11,7 +11,7 @@ export const authQueries = {
     return useMutation({
       mutationFn: (params: SignupParams) => authService.signup(params),
       onSuccess: (response) => {
-        if (response.success) {
+        if (response.success && response.status === 'authenticated') {
           setUser(response.user);
           queryClient.invalidateQueries({ queryKey: ['auth'] });
         }
@@ -26,7 +26,7 @@ export const authQueries = {
     return useMutation({
       mutationFn: (params: LoginParams) => authService.login(params),
       onSuccess: (response) => {
-        if (response.success) {
+        if (response.success && response.status === 'authenticated') {
           setUser(response.user);
           queryClient.invalidateQueries({ queryKey: ['auth'] });
         }

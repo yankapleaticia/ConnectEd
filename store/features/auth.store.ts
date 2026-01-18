@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import type { User } from '@/types/domain/user';
-import { supabase } from '@/services/api/client';
+import { getSupabaseClient } from '@/services/api/client';
 
 interface AuthState {
   readonly user: User | null;
@@ -30,6 +30,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   initialize: async () => {
     set({ isLoading: true });
 
+    const supabase = getSupabaseClient();
     const { data: { session } } = await supabase.auth.getSession();
     
     if (session?.user) {

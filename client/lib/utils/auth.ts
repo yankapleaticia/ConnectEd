@@ -1,6 +1,6 @@
 import type { User } from '@/types/domain/user';
 
-export function isAuthenticated(user: User | null): boolean {
+export function isAuthenticated(user: User | null): user is User {
   return user !== null;
 }
 
