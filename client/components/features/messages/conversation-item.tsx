@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
+import { profileQueries } from '@/services/queries/profile.queries';
 import type { Conversation } from '@/services/features/messages/messages.types';
 
 interface ConversationItemProps {
@@ -28,9 +30,19 @@ function formatDate(dateString: string): string {
 }
 
 export function ConversationItem({ conversation, currentUserId }: ConversationItemProps) {
+  const { data: otherUserProfile } = profileQueries.useProfile(conversation.userId);
   const lastMessage = conversation.lastMessage;
   const preview = lastMessage?.body ?? '';
   const previewText = preview.length > 60 ? `${preview.substring(0, 60)}...` : preview;
+
+  const displayName = otherUserProfile?.success
+    ? `${otherUserProfile.profile.firstName} ${otherUserProfile.profile.lastName}`
+    : conversation.userId;
+
+  const avatarUrl = otherUserProfile?.success ? otherUserProfile.profile.avatarUrl : null;
+  const displayUrl = avatarUrl;
+  const isExternalUrl = displayUrl ? (displayUrl.startsWith('http://') || displayUrl.startsWith('https://')) : false;
+  const isDataUrl = displayUrl?.startsWith('data:') ?? false;
 
   return (
     <Link
@@ -41,14 +53,59 @@ export function ConversationItem({ conversation, currentUserId }: ConversationIt
         border: `1px solid var(--color-border)`,
       }}
     >
-      <div className="flex items-start justify-between">
+      <div className="flex items-center gap-3">
+        {/* Avatar */}
+        <div className="relative w-12 h-12 rounded-full overflow-hidden border flex-shrink-0" 
+             style={{ borderColor: 'var(--color-border)' }}>
+          {displayUrl ? (
+            isDataUrl || isExternalUrl ? (
+              <img
+                src={displayUrl}
+                alt={displayName}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <Image
+                src={displayUrl}
+                alt={displayName}
+                fill
+                className="object-cover"
+                sizes="48px"
+              />
+            )
+          ) : (
+            <div
+              className="w-full h-full flex items-center justify-center"
+              style={{ backgroundColor: 'var(--color-surface)' }}
+            >
+              <span
+                className="text-lg font-semibold"
+                style={{ color: 'var(--color-text-muted)' }}
+              >
+                {displayName[0]?.toUpperCase()}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* Content */}
         <div className="flex-1 min-w-0">
-          <p
-            className="font-medium truncate"
-            style={{ color: 'var(--color-text-primary)' }}
-          >
-            {conversation.userId}
-          </p>
+          <div className="flex items-start justify-between">
+            <p
+              className="font-medium truncate"
+              style={{ color: 'var(--color-text-primary)' }}
+            >
+              {displayName}
+            </p>
+            {lastMessage && (
+              <p
+                className="text-xs ml-2 flex-shrink-0"
+                style={{ color: 'var(--color-text-muted)' }}
+              >
+                {formatDate(lastMessage.createdAt)}
+              </p>
+            )}
+          </div>
           {lastMessage && (
             <p
               className="text-sm truncate mt-1"
@@ -58,14 +115,6 @@ export function ConversationItem({ conversation, currentUserId }: ConversationIt
             </p>
           )}
         </div>
-        {lastMessage && (
-          <p
-            className="text-xs ml-2 flex-shrink-0"
-            style={{ color: 'var(--color-text-muted)' }}
-          >
-            {formatDate(lastMessage.createdAt)}
-          </p>
-        )}
       </div>
     </Link>
   );

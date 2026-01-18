@@ -19,10 +19,10 @@ function formatDate(dateString: string): string {
 
 export function MessageBubble({ message, isSent }: MessageBubbleProps) {
   return (
-    <div className={`flex ${isSent ? 'justify-end' : 'justify-start'} mb-3`}>
+    <div className={`flex ${isSent ? 'justify-end' : 'justify-start'} mb-2`}>
       <div
-        className={`max-w-[70%] rounded-lg px-4 py-2 ${
-          isSent ? 'rounded-br-sm' : 'rounded-bl-sm'
+        className={`max-w-[75%] sm:max-w-[70%] rounded-2xl px-4 py-2.5 shadow-sm ${
+          isSent ? 'rounded-br-md' : 'rounded-bl-md'
         }`}
         style={
           isSent
@@ -37,9 +37,11 @@ export function MessageBubble({ message, isSent }: MessageBubbleProps) {
               }
         }
       >
-        <p className="whitespace-pre-wrap break-words">{message.body}</p>
+        <p className="whitespace-pre-wrap break-words text-sm sm:text-base leading-relaxed">
+          {message.body}
+        </p>
         <p
-          className={`text-xs mt-1 ${
+          className={`text-xs mt-1.5 ${
             isSent ? 'text-right' : 'text-left'
           }`}
           style={{

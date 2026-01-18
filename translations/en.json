@@ -239,6 +239,10 @@
       "editProfile": "Edit Profile",
       "success": "Profile completed successfully!"
     },
+    "public": {
+      "message": "Message",
+      "messageUser": "Message {{name}}"
+    },
     "listings": {
       "edit": "Edit",
       "delete": "Delete",
@@ -261,6 +265,9 @@
     "to": "To",
     "conversationWith": "Conversation with",
     "noMessages": "No messages yet. Start the conversation!",
+    "backToInbox": "Back to Inbox",
+    "typeMessage": "Type a message...",
+    "pressEnter": "Press Enter to send, Shift+Enter for new line",
     "validation": {
       "bodyRequired": "Message body is required",
       "bodyMin": "Message must be at least 1 character"

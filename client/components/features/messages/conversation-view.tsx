@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import { useTranslations } from '@/client/lib/i18n';
 import { messagesQueries } from '@/services/queries/messages.queries';
 import { MessageForm } from './message-form';
@@ -14,6 +15,12 @@ interface ConversationViewProps {
 export function ConversationView({ currentUserId, otherUserId }: ConversationViewProps) {
   const t = useTranslations('messages');
   const { data: messages, isLoading, error } = messagesQueries.useMessages(currentUserId, otherUserId);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to bottom when messages change
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   if (isLoading) {
     return (
@@ -32,10 +39,16 @@ export function ConversationView({ currentUserId, otherUserId }: ConversationVie
   }
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="flex-1 overflow-y-auto mb-4">
+    <div className="flex flex-col h-full rounded-lg overflow-hidden border" 
+         style={{ 
+           backgroundColor: 'var(--color-background)',
+           borderColor: 'var(--color-border)'
+         }}>
+      {/* Messages container with scroll */}
+      <div className="flex-1 overflow-y-auto px-4 py-4" 
+           style={{ scrollBehavior: 'smooth' }}>
         {!messages || messages.length === 0 ? (
-          <div className="flex justify-center items-center py-12">
+          <div className="flex justify-center items-center h-full">
             <p style={{ color: 'var(--color-text-secondary)' }}>{t('noMessages')}</p>
           </div>
         ) : (
@@ -47,10 +60,17 @@ export function ConversationView({ currentUserId, otherUserId }: ConversationVie
                 isSent={message.senderId === currentUserId}
               />
             ))}
+            <div ref={messagesEndRef} />
           </div>
         )}
       </div>
-      <div className="border-t pt-4" style={{ borderColor: 'var(--color-border)' }}>
+
+      {/* Fixed message form at bottom */}
+      <div className="border-t px-4 py-3" 
+           style={{ 
+             borderColor: 'var(--color-border)',
+             backgroundColor: 'var(--color-surface)'
+           }}>
         <MessageForm receiverId={otherUserId} senderId={currentUserId} />
       </div>
     </div>

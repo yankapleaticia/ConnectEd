@@ -37,7 +37,7 @@ export function Inbox({ userId }: InboxProps) {
   }
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-2 max-w-2xl mx-auto">
       {conversations.map((conversation) => (
         <ConversationItem
           key={conversation.userId}

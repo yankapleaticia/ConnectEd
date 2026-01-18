@@ -239,6 +239,10 @@
       "editProfile": "Modifier le Profil",
       "success": "Profil complété avec succès !"
     },
+    "public": {
+      "message": "Message",
+      "messageUser": "Message {{name}}"
+    },
     "listings": {
       "edit": "Modifier",
       "delete": "Supprimer",
@@ -261,6 +265,9 @@
     "to": "À",
     "conversationWith": "Conversation avec",
     "noMessages": "Aucun message pour le moment. Commencez la conversation !",
+    "backToInbox": "Retour à la boîte de réception",
+    "typeMessage": "Tapez un message...",
+    "pressEnter": "Appuyez sur Entrée pour envoyer, Maj+Entrée pour nouvelle ligne",
     "validation": {
       "bodyRequired": "Le corps du message est requis",
       "bodyMin": "Le message doit contenir au moins 1 caractère"

@@ -110,7 +110,10 @@ export function ListingDetail({ listing }: ListingDetailProps) {
             className="flex flex-wrap items-center gap-3 text-sm"
             style={{ color: 'var(--color-text-secondary)' }}
           >
-            <div className="flex items-center gap-2">
+            <Link 
+              href={`/profile/${listing.authorId}`}
+              className="flex items-center gap-2 transition-opacity hover:opacity-80"
+            >
               <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border flex-shrink-0" style={{ borderColor: 'var(--color-border)' }}>
                 {displayUrl ? (
                   isDataUrl || isExternalUrl ? (
@@ -145,7 +148,7 @@ export function ListingDetail({ listing }: ListingDetailProps) {
               <span>
                 {tDetail('by')} {authorName}
               </span>
-            </div>
+            </Link>
             <span className="flex items-center gap-1">
               <Calendar size={14} />
               {tDetail('posted')} {formatDate(listing.createdAt)}
