@@ -81,7 +81,7 @@ export function Header() {
             {/* All Listings - Always visible, Desktop: icon + text, Mobile: icon + text */}
             <Link
               href="/listings"
-              className="flex items-center gap-2 px-3 sm:px-4 py-2 text-sm font-medium transition-colors rounded-lg"
+              className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium transition-colors rounded-lg"
               style={{ color: 'var(--color-text-secondary)' }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = 'var(--color-primary)';
@@ -93,7 +93,7 @@ export function Header() {
               }}
             >
               <List size={18} />
-              <span>{t('feed')}</span>
+              <span className="whitespace-nowrap">{t('feed')}</span>
             </Link>
 
             {isAuthenticated ? (

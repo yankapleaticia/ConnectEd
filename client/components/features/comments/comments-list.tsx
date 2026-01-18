@@ -13,7 +13,7 @@ interface CommentsListProps {
 export function CommentsList({ listingId }: CommentsListProps) {
   const t = useTranslations('comments');
   const user = useAuthStore((state) => state.user);
-  const { data: comments, isLoading, error } = commentsQueries.useComments(listingId);
+  const { data: comments, isLoading, error } = commentsQueries.useComments(listingId, user?.id);
 
   if (isLoading) {
     return (

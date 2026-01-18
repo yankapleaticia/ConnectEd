@@ -123,6 +123,11 @@
     "submit": "Publier le commentaire",
     "submitting": "Publication...",
     "updating": "Mise à jour...",
+    "reply": "Répondre",
+    "replyPlaceholder": "Écrivez votre réponse...",
+    "replyCount": "réponse",
+    "repliesCount": "réponses",
+    "react": "Réagir",
     "validation": {
       "contentRequired": "Le contenu du commentaire est requis",
       "contentMin": "Le commentaire doit contenir au moins 5 caractères"

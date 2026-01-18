@@ -45,9 +45,11 @@ export function ListingsFeed({ filters, onPostSuccess }: ListingsFeedProps) {
       {!listings || listings.length === 0 ? (
         <EmptyListingsState hasFilters={!!hasFilters} />
       ) : (
-        <div className="space-y-4 sm:space-y-6">
+        <div>
           {listings.map((listing) => (
-            <ListingCard key={listing.id} listing={listing} />
+            <div key={listing.id} className="mb-6 sm:mb-8 last:mb-0">
+              <ListingCard listing={listing} />
+            </div>
           ))}
         </div>
       )}

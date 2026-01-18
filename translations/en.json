@@ -123,6 +123,11 @@
     "submit": "Post Comment",
     "submitting": "Posting...",
     "updating": "Updating...",
+    "reply": "Reply",
+    "replyPlaceholder": "Write your reply...",
+    "replyCount": "reply",
+    "repliesCount": "replies",
+    "react": "React",
     "validation": {
       "contentRequired": "Comment content is required",
       "contentMin": "Comment must be at least 5 characters"

@@ -171,11 +171,20 @@ export function ListingImageGallery({
 
     return (
       <div 
-        className={`grid ${cardLayout.gridCols} gap-0.5 sm:gap-1`}
+        className={`grid ${cardLayout.gridCols} gap-0.5 sm:gap-1 w-full`}
         style={{ 
           backgroundColor: 'var(--color-surface)',
-          aspectRatio: images.length === 1 ? '16/9' : images.length === 2 ? '16/9' : '16/10',
-          minHeight: '250px',
+          ...(images.length === 1 
+            ? { 
+                height: 'auto',
+                maxHeight: '400px',
+                minHeight: '200px',
+              }
+            : {
+                aspectRatio: images.length === 2 ? '16/9' : '16/10',
+                minHeight: '250px',
+              }
+          ),
         }}
       >
         {displayImages.map((imageUrl, index) => {
@@ -191,7 +200,12 @@ export function ListingImageGallery({
                 transition-transform hover:scale-[1.01]
                 ${cardLayout.imageSizes[index]?.rowSpan === 2 ? 'row-span-2' : ''}
                 ${cardLayout.imageSizes[index]?.colSpan === 2 ? 'col-span-2' : ''}
-                ${cardLayout.imageSizes[index]?.rowSpan === 1 ? 'aspect-square' : 'aspect-[4/3]'}
+                ${images.length === 1 
+                  ? 'w-full h-full min-h-[200px] max-h-[400px]' 
+                  : cardLayout.imageSizes[index]?.rowSpan === 1 
+                    ? 'aspect-square' 
+                    : 'aspect-[4/3]'
+                }
               `}
               onClick={() => handleImageClick(index)}
               style={{ backgroundColor: 'var(--color-surface)' }}

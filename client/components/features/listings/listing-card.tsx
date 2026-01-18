@@ -52,7 +52,7 @@ export function ListingCard({ listing }: ListingCardProps) {
   return (
     <Link href={`/listings/${listing.id}`}>
       <article 
-        className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
+        className="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
         style={{
           backgroundColor: 'var(--color-background)',
           borderColor: 'var(--color-border)',
@@ -60,14 +60,16 @@ export function ListingCard({ listing }: ListingCardProps) {
       >
         {/* Image Gallery */}
         {hasImages && listing.imageUrls && (
-          <ListingImageGallery
-            images={listing.imageUrls}
-            title={listing.title}
-            variant="card"
-          />
+          <div className="w-full flex-shrink-0">
+            <ListingImageGallery
+              images={listing.imageUrls}
+              title={listing.title}
+              variant="card"
+            />
+          </div>
         )}
 
-        <div className="p-4 sm:p-6">
+        <div className="p-4 sm:p-6 flex-shrink-0">
           <div className="flex items-start justify-between mb-3 gap-3">
             <h2 
               className="text-lg sm:text-xl font-semibold flex-1"

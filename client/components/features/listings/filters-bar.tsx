@@ -41,7 +41,7 @@ export function FiltersBar({ filters, onFiltersChange }: FiltersBarProps) {
 
   return (
     <div className="space-y-4 mb-6 py-4 sm:py-6">
-      <div className="flex flex-col md:flex-row gap-4">
+      <div className="flex flex-row gap-2 sm:gap-4">
         <div className="flex-1">
           <SearchBar
             value={filters.search || ''}
@@ -54,10 +54,12 @@ export function FiltersBar({ filters, onFiltersChange }: FiltersBarProps) {
         />
       </div>
       <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
-        <CategoryFilter
-          selectedCategory={filters.category}
-          onCategoryChange={handleCategoryChange}
-        />
+        <div className="w-full md:flex-1 min-w-0">
+          <CategoryFilter
+            selectedCategory={filters.category}
+            onCategoryChange={handleCategoryChange}
+          />
+        </div>
         {hasActiveFilters && (
           <button
             onClick={clearFilters}

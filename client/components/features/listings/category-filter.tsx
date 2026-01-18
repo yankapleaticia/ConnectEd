@@ -24,10 +24,23 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
   const tFilters = useTranslations('listings.filters');
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div 
+      className="flex gap-2 overflow-x-auto pb-2" 
+      style={{ 
+        scrollbarWidth: 'none', 
+        msOverflowStyle: 'none',
+        WebkitOverflowScrolling: 'touch',
+        overflowY: 'hidden'
+      }}
+    >
+      <style jsx>{`
+        div::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
       <button
         onClick={() => onCategoryChange(undefined)}
-        className="px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+        className="px-3 sm:px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap flex-shrink-0"
         style={
           !selectedCategory
             ? {
@@ -58,7 +71,7 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
           <button
             key={category}
             onClick={() => onCategoryChange(category)}
-            className="px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+            className="px-3 sm:px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap flex-shrink-0"
             style={
               isSelected
                 ? {

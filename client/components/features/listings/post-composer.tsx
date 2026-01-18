@@ -371,11 +371,13 @@ export function PostComposer({ onPostSuccess }: PostComposerProps) {
                 onChange={(e) => setBody(e.target.value)}
                 placeholder={t('bodyPlaceholder')}
                 rows={6}
-                className="w-full px-4 py-2.5 rounded-lg transition-colors resize-y"
+                className="w-full px-4 py-2.5 rounded-lg transition-colors resize-y overflow-y-auto"
                 style={{
                   border: `1px solid ${errors.body ? 'var(--color-error)' : 'var(--color-border)'}`,
                   backgroundColor: 'var(--color-background)',
                   color: 'var(--color-text-primary)',
+                  maxHeight: '400px',
+                  minHeight: '120px',
                 }}
                 onFocus={(e) => {
                   e.currentTarget.style.borderColor = 'var(--color-primary)';
