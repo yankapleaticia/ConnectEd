@@ -237,7 +237,13 @@
       "listings": "My Listings",
       "noListings": "You haven't created any listings yet",
       "editProfile": "Edit Profile",
-      "success": "Profile completed successfully!"
+      "success": "Profile updated successfully!"
+    },
+    "edit": {
+      "title": "Edit Profile",
+      "submit": "Update Profile",
+      "submitting": "Updating...",
+      "success": "Profile updated successfully"
     },
     "public": {
       "message": "Message",

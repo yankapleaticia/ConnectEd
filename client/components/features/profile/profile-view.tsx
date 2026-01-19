@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+import { Edit } from 'lucide-react';
 import { useTranslations } from '@/client/lib/i18n';
 import { ProfileListingsFeed } from './profile-listings-feed';
 import type { Profile } from '@/types/domain/user';
@@ -72,21 +74,42 @@ export function ProfileView({ profile, userId }: ProfileViewProps) {
 
           {/* Profile Info */}
           <div className="flex-1 space-y-4">
-            <div>
-              <h1 
-                className="text-2xl sm:text-3xl font-bold mb-2"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                {fullName}
-              </h1>
-              {profile.bio && (
-                <p 
-                  className="text-base sm:text-lg leading-relaxed"
-                  style={{ color: 'var(--color-text-secondary)' }}
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+              <div className="flex-1">
+                <h1 
+                  className="text-2xl sm:text-3xl font-bold mb-2"
+                  style={{ color: 'var(--color-text-primary)' }}
                 >
-                  {profile.bio}
-                </p>
-              )}
+                  {fullName}
+                </h1>
+                {profile.bio && (
+                  <p 
+                    className="text-base sm:text-lg leading-relaxed"
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
+                    {profile.bio}
+                  </p>
+                )}
+              </div>
+              <Link
+                href="/profile/edit"
+                className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-lg transition-colors shadow-sm self-start flex-shrink-0"
+                style={{
+                  backgroundColor: 'var(--color-primary)',
+                  color: 'var(--color-primary-text)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'var(--color-primary-hover)';
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'var(--color-primary)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                <Edit size={16} />
+                {t('editProfile')}
+              </Link>
             </div>
 
             <div className="space-y-2 sm:space-y-3">

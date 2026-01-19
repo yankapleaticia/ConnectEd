@@ -237,7 +237,13 @@
       "listings": "Mes Annonces",
       "noListings": "Vous n'avez pas encore créé d'annonces",
       "editProfile": "Modifier le Profil",
-      "success": "Profil complété avec succès !"
+      "success": "Profil mis à jour avec succès !"
+    },
+    "edit": {
+      "title": "Modifier le Profil",
+      "submit": "Mettre à jour le Profil",
+      "submitting": "Mise à jour...",
+      "success": "Profil mis à jour avec succès"
     },
     "public": {
       "message": "Message",
